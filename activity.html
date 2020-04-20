@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Creative - Start Bootstrap Theme</title>
+        <!-- Font Awesome icons (free version)-->
+        <script src="https://use.fontawesome.com/releases/v5.12.1/js/all.js" crossorigin="anonymous"></script>
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+        <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+        <!-- Third party plugin CSS-->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <!-- Third party plugin JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+        <!-- Core theme JS-->
+        <script type="text/javascript" src="js/map.js">  </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDS81s60D1Ycf1aHA94yyQSG9D6n3RJS4k&libraries=places&callback=initAutocomplete" async defer></script>
+        <script src="https://cdn.jsdelivr.net/bootstrap.timepicker/0.2.6/js/bootstrap-timepicker.min.js"></script>
+
+                 </head>
+    <body id="page-top">
+        <!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand js-scroll-trigger" href="index.html">DESIGNATED SWIMMER</a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto my-2 my-lg-0">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Services</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Masthead-->
+
+        <header class="activhead">
+            <div class="container">
+
+              <form id="myForm" >
+                <div class="row">
+                  <div class="col-lg-6 col-md-6 text-center">
+                    <div class="form-box error" data-errormsg="">
+
+                    <label  class="text-white-75 font-weight-light text-left" for="input-location">Select Location</label>
+                    <input  type="text" id="input-location" class="form-control"  placeholder="Search Box" tabindex="1"/>
+</div>
+                    <div id="map"></div>
+                </div>
+                    <div class="col-lg-6 col-md-6 ">
+                      <div class="form-box" data-errormsg="">
+              <label class="text-white-75 font-weight-light" for="input-type">Select Activty Type</label>
+              <select class="form-control" id="input-type" tabindex="2">
+                  <option value="0">Surffing</option>
+                  <option value="1">Swimming</option>
+                  <option value="2">Kayaking</option>
+                  <option value="3">Paddling</option>
+              </select>
+              </div>
+          <div class="form-box" data-errormsg="">
+              <label class="text-white-75 font-weight-light" for="input-date">Select Date</label>
+              <input  class="form-control" type="date" id="input-date" tabindex="3" value="2020-01-01" />
+          </div>
+          <div class="form-box"  data-errormsg="">
+            <label class="text-white-75 font-weight-light" for="input-time">Select Time</label>
+
+            <input  class="input-group" type="time" id="input-time"  tabindex="3"  />
+          </div>
+          <div class="form-box">
+
+              <button class="btn btn-light text-center" id="button-send" type="submit">Plan!</button>
+          </div>
+                </div>
+
+                      </div>
+
+                      <input id="lblresult" type="hidden" >
+                      <input id="longitude" name="namelong" type="hidden" >
+
+      </form>
+
+      </div>
+
+
+      <script>
+  
+      var url = 'http://localhost:3000/posts';
+      $(function () {
+          $("#myForm").submit(function(event) {
+            event.preventDefault();
+            var postData = {
+              location: $('#input-location').val(),
+              type: $('#input-type').val(),
+              date: $('#input-date').val(),
+              time: $('#input-time').val(),
+              lat:$('#lblresult').val(),
+              lng:$('#longitude').val()
+            };
+            $.post("http://localhost:3000/posts", postData,
+              function(data) {
+                var json = JSON.stringify(data);
+                if (json.ExceptionMessage != undefined) {
+                  alert(json.ExceptionMessage); // the exception from the server
+                  $('#' + json.Field).focus(); // focus the specific field to fill in
+                }
+                if (json.SuccessMessage != undefined) {
+                  alert(json.SuccessMessage); // the success message from server
+                }
+             });
+          });
+      });
+
+          </script>
+        </header>
+        <!-- About section-->
+
+
+
+
+        <!-- Footer-->
+        <footer class="bg-light py-5">
+            <div class="container"><div class="small text-center text-muted">Copyright © 2020 - Start Bootstrap</div></div>
+        </footer>
+        <!-- Bootstrap core JS-->
+
+        <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+         <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    </body>
+</html>
