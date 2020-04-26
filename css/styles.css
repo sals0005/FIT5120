@@ -85,10 +85,15 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
 }
+h4{
+  color: #343a41;
+  font-family: sans-serif;
+}
 
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  family: sans-serif
 }
 
 abbr[title],
@@ -2021,7 +2026,7 @@ pre code {
 .form-control:focus {
   color: #495057;
   background-color: #fff;
-  border-color: #fbc2b3;
+  border-color: #a3cef7;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
 }
@@ -3523,12 +3528,12 @@ input[type=button].btn-block {
   box-shadow: 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
 }
 .custom-control-input:focus:not(:checked) ~ .custom-control-label::before {
-  border-color: #fbc2b3;
+  border-color: #66b3ff;
 }
 .custom-control-input:not(:disabled):active ~ .custom-control-label::before {
   color: #fff;
-  background-color: #fde9e3;
-  border-color: #fde9e3;
+  background-color: #a3cef7;
+  border-color: #a3cef7;
 }
 .custom-control-input[disabled] ~ .custom-control-label, .custom-control-input:disabled ~ .custom-control-label {
   color: #6c757d;
@@ -3704,7 +3709,7 @@ input[type=button].btn-block {
   opacity: 0;
 }
 .custom-file-input:focus ~ .custom-file-label {
-  border-color: #fbc2b3;
+  border-color: #a3cef7;
   box-shadow: 0 0 0 0.2rem rgba(244, 98, 58, 0.25);
 }
 .custom-file-input[disabled] ~ .custom-file-label, .custom-file-input:disabled ~ .custom-file-label {
@@ -4354,6 +4359,7 @@ input[type=button].btn-block {
   display: flex;
   flex-direction: column;
   min-width: 0;
+  margin-left: 20px;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -4465,6 +4471,9 @@ input[type=button].btn-block {
   margin-bottom: 15px;
 }
 @media (min-width: 576px) {
+  .card{
+    margin-left: 50px;
+  }
   .card-deck {
     display: flex;
     flex-flow: row wrap;
@@ -7443,6 +7452,9 @@ button.bg-dark:focus {
 .h-75 {
   height: 75% !important;
 }
+.h-85 {
+  height: 85% !important;
+}
 
 .h-100 {
   height: 100% !important;
@@ -9753,7 +9765,6 @@ button.bg-dark:focus {
 .font-weight-light {
   font-weight: 300 !important;
 }
-
 .font-weight-lighter {
   font-weight: lighter !important;
 }
@@ -9779,7 +9790,7 @@ button.bg-dark:focus {
 }
 
 .text-primary {
-  color: #66b3ff
+  color: #66b3ff;
   !important;
 }
 
@@ -9848,7 +9859,7 @@ a.text-dark:hover, a.text-dark:focus {
 }
 
 .text-muted {
-  color: #6c757d !important;
+  color: #ffff !important;
 }
 
 .text-black-50 {
@@ -10094,13 +10105,13 @@ hr.light {
 }
 
 header.masthead {
-  padding-top: 10rem;
+  padding-top: -20rem;
   padding-bottom: calc(10rem - 4.5rem);
   background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/lacie-slezak-7yqyQQXgOT8-unsplash.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: scroll;
-  background-size: cover;
+  background-size: cover;  
 }
 header.masthead h1 {
   font-size: 2.25rem;
@@ -10109,7 +10120,7 @@ header.masthead h1 {
   header.masthead {
     height: 100vh;
     min-height: 40rem;
-    padding-top: 4.5rem;
+    padding-top: 10rem;
     padding-bottom: 0;
   }
   header.masthead p {
@@ -10126,7 +10137,7 @@ header.masthead h1 {
 }
 
 
-header.activhead {
+div.activhead {
   padding-top: 10rem;
   padding-bottom: calc(10rem - 4.5rem);
   background: linear-gradient(to bottom, rgba(159, 195, 204) 0%, rgba(159, 195, 204) 100%), url("../assets/img/950x350-sky-blue-solid-color-background.jpg");
@@ -10135,25 +10146,25 @@ header.activhead {
   background-attachment: scroll;
   background-size: cover;
 }
-header.activhead h1 {
+div.activhead h1 {
   font-size: 2.25rem;
 }
 @media (min-width: 992px) {
-  header.activhead {
+  div.activhead {
     height: 100%;
     min-height: 40rem;
     padding-top: 4.5rem;
     padding-bottom: 0;
   }
-  header.activhead p {
+  div.activhead p {
     font-size: 1.15rem;
   }
-  header.activhead h1 {
+  div.activhead h1 {
     font-size: 3rem;
   }
 }
 @media (min-width: 1200px) {
-  header.activhead h1 {
+  div.activhead h1 {
     font-size: 3.5rem;
   }
 }
@@ -10163,8 +10174,68 @@ header.activhead h1 {
   padding-right: 1px;
   }
 }
+
+div.currenthead {
+  padding-top: 20rem;
+  padding-bottom: calc(10rem - 4.5rem);
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url("../assets/img/Sea_Water_Wave_and_Sand_Background-336.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-size: cover;
+   /* margin-top: 72px; 
+     height: 85vh;  */
+}
+div.currenthead h1 {
+  font-size: 2.25rem;
+}
+
+@media (min-width: 992px) {
+  div.currenthead {
+    height: 100%;
+    min-height: 40rem;
+    padding-top: 4.5rem;
+    padding-bottom: 0;
+  }
+  div.currenthead p {
+    font-size: 1.15rem;
+  }
+  div.currenthead h1 {
+    font-size: 3rem;
+  }
+}
+@media (min-width: 1200px) {
+  div.currenthead h1 {
+    font-size: 3.5rem;
+  }
+}
+.feels{
+clear: both
+}
+
+
+.temp{
+clear: both
+}
+
+
 .text-white-75 {
   color: rgba(255, 255, 255, 0.75);
+}
+
+
+.text-plan {
+  color: #66b3ff;
+
+}
+
+.text-gray-75 {
+  color: rgb(142, 161, 185);
+  family: sans-serif;
+}
+.text-blue-75 {
+  color: rgb(50, 165, 194);
+  family: sans-serif;
 }
 form{
         margin: 2rem;
@@ -10297,3 +10368,9 @@ width:100%;height:400px    }
      #target {
        width: 345px;
      }
+
+.card-transparent {
+  background-color: rgba(245, 245, 245, 1);
+  opacity: .7;
+}
+
