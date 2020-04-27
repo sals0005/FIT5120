@@ -1,0 +1,4 @@
+{
+    "appService.defaultWebAppToDeploy": "/subscriptions/8ec67d90-be54-40a5-8605-9eee58fe3cec/resourceGroups/aqua-app/providers/Microsoft.Web/sites/aqua-app",
+    "appService.deploySubpath": "aqua-mate"
+}
